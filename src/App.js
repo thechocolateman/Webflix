@@ -5,7 +5,7 @@ import { mdiChevronRight } from '@mdi/js';
 import Navbar from "./components/Navbar";
 import Banner from "./components/Banner"
 const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
-
+ 
 const movieData = {
   categories: {
     "TV Dramas":{
