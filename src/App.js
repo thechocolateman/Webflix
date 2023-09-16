@@ -7,7 +7,7 @@ import Banner from "./components/Banner"
 import {useCallback, useEffect, useState} from "react"
 let arr = []
 let isLoaded = false;
-let firstRun = true;
+let finishedLoading = false;
 let movieListSaved = false;
 let movieList = [];
 
@@ -18,7 +18,7 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
  function App() {
   //Variables to store JSON to state
   const [genres, setGenres] = useState({})
-  const [movies, setMovies] = useState()
+  const [movies, setMovies] = useState({})
   const [allMovies, setAllMovies] = useState({})
 
   function getContent(obj, url, key){
@@ -60,24 +60,14 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
       getContent("genres","https://api.themoviedb.org/3/genre/movie/list?", "55c56b9f930280a2563491ffe49d383f")
       
     }
-    else{
-
-    }
     isLoaded = true
-    // genres
-    // genres.genres.map(genre=>arr.push(genre.name))
-    // getContent("movies", "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=35&", "55c56b9f930280a2563491ffe49d383f")
-    // for (const item of arr){
-    //   // console.log(item)
-    // }return
-    // return(console.log(arr))
   }, [])
 
   useEffect(()=>{
 
     //WORKAROUND TO GET THIS TO RUN ONCE. FIX IN FUTURE VERSIONS
     //If genre state isn't empty
-    // if(firstRun){
+    if(!finishedLoading){
       if(Object.keys(genres).length !== 0){
         // if(movieList === false){
           for(const item in genres){
@@ -92,6 +82,7 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
                 let val = [[id,result]]
                 //  console.log(movieList)
                 movieList.push(...val)
+                setMovies(movieList)
                 // console.log(movieList.length)
               })
               movieListSaved = true
@@ -99,7 +90,8 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
           }
         // }
         }
-      // }
+        finishedLoading = true
+      }
   },[genres])
   
   return (
@@ -111,7 +103,7 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
       <Banner />
       {/* Content Section */}
       <main>
-        {isLoaded ? (
+        {finishedLoading ? (
           (genres.map(genre=>(
             <div key={genre.name} className="movie__carousel">
             <div className="slider__container">
@@ -119,21 +111,22 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
                 <h2>{genre.name}</h2>
               </div>
               <div className="slider">
-                {console.log("MOCIEIKDMSNM", movies)}
-                
+                {console.log(movies)}
                 {/* {Object.keys(movies).length !== 0 ? movies.results.map(movie=><div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" /></div>) : console.log("NULLL")} */}
-                <div className="next-navigation"><Icon 
-                  className="arrow-next"
-                  path={mdiChevronRight}
-                  title="User Profile"
-                  size={3}
-                  color="#fff"
-                />   </div>      
+                <div className="next-navigation">
+                  <Icon 
+                    className="arrow-next"
+                    path={mdiChevronRight}
+                    title="User Profile"
+                    size={3}
+                    color="#fff"
+                  />   
+                </div>      
                       
               </div>
             </div>
           </div>)))
-        ): console.log("HOW IS IT ", isLoaded)}
+        ): console.log("HOW IS IT ", finishedLoading)}
       </main>
     </div>
   );
