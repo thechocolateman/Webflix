@@ -1,17 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Icon from '@mdi/react';
-import { mdiChevronRight } from '@mdi/js';
-import Navbar from "./components/Navbar";
-import Banner from "./components/Banner"
-import {useCallback, useEffect, useState} from "react"
-let arr = []
+
+import Home from "./pages/Home"
+import { useEffect, useState} from "react"
+// let arr = []
 let isLoaded = false;
 let finishedLoading = false;
-let movieListSaved = false;
+// let movieListSaved = false;
 let movieList = [];
-
-const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
 
 //Function to get content from the API
 
@@ -19,14 +14,14 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
   //Variables to store JSON to state
   const [genres, setGenres] = useState({})
   const [movies, setMovies] = useState({})
-  const [allMovies, setAllMovies] = useState({})
+  // const [allMovies, setAllMovies] = useState({})
 
   function getContent(obj, url, key){
     
    fetch(`${url}api_key=${key}`)
     .then(data=>data.json())
     .then(json=>{
-      if (obj == "genres"){
+      if (obj === "genres"){
         setGenres(json.genres)
       }
       else{
@@ -39,17 +34,7 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
   //Get movies for each genre and store in state
   const getGenreMovies = useCallback =>(()=> {
     console.log("RUN")
-    // genres.genres.map(()=>console.log("edsnkm"))
-    // console.log("refdws")
   },[])
-
-  // useEffect(()=>{
-  //   console.log("RUNNNNN")
-  //     getContent("genres","https://api.themoviedb.org/3/genre/movie/list?", "55c56b9f930280a2563491ffe49d383f")
-  //     // console.log("EDX")
-
-  //     // getGenreMovies()
-  // }, [])
 
 
 
@@ -58,10 +43,9 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
     //Set an isloaded variable and sets to true once the function is called and saved to state 
     if(!isLoaded){
       getContent("genres","https://api.themoviedb.org/3/genre/movie/list?", "55c56b9f930280a2563491ffe49d383f")
-      
     }
     isLoaded = true
-  }, [])
+  }, [genres])
 
   useEffect(()=>{
 
@@ -71,9 +55,7 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
       if(Object.keys(genres).length !== 0){
         // if(movieList === false){
           for(const item in genres){
-            getMovies("movies", `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genres[item].id}&`, "55c56b9f930280a2563491ffe49d383f")
-            function getMovies(obj, url, key){
-        
+            const getMovies = (obj, url, key) =>{
               fetch(`${url}api_key=${key}`)
               .then(data=>data.json())
               .then(json=>{
@@ -83,51 +65,37 @@ const categories = ["TV Dramas", "Trending Now", "Top Rated", "Comedy"]
                 //  console.log(movieList)
                 movieList.push(...val)
                 setMovies(movieList)
-                // console.log(movieList.length)
-              })
-              movieListSaved = true
+                // console.log(movies)
+              })            
             }
+            getMovies("movies", `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genres[item].id}&`, "55c56b9f930280a2563491ffe49d383f")
+            
+            finishedLoading = true
           }
         // }
         }
-        finishedLoading = true
+        
       }
-  },[genres])
+  },[genres, movies])
   
+  
+
+  function getMovieContent(data,id){
+    let returnedData = []
+    data.filter(row => {
+      //IDs from API
+      if(row[0] === id){
+        // return row[1]
+        returnedData.push(row[1])
+      }
+    })
+    // console.log(returnedData)
+    return returnedData
+  }
+
   return (
     <div className="App">
-      {/* Navigation */}
-      <Navbar />
-      {/* Hero Banner */}
-      {/* {console.log(movies)} */}
-      <Banner />
-      {/* Content Section */}
-      <main>
-        {finishedLoading ? (
-          (genres.map(genre=>(
-            <div key={genre.name} className="movie__carousel">
-            <div className="slider__container">
-              <div className="movie__container">
-                <h2>{genre.name}</h2>
-              </div>
-              <div className="slider">
-                {console.log(movies)}
-                {/* {Object.keys(movies).length !== 0 ? movies.results.map(movie=><div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt="" /></div>) : console.log("NULLL")} */}
-                <div className="next-navigation">
-                  <Icon 
-                    className="arrow-next"
-                    path={mdiChevronRight}
-                    title="User Profile"
-                    size={3}
-                    color="#fff"
-                  />   
-                </div>      
-                      
-              </div>
-            </div>
-          </div>)))
-        ): console.log("HOW IS IT ", finishedLoading)}
-      </main>
+      {movies.length > 0 ? <Home genres={genres} movies={movies} /> : <div>Loading</div>}
     </div>
   );
 }
