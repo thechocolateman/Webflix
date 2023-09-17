@@ -114,6 +114,8 @@ nav, .wrapper{
 
 .slider img{
   max-width: 215px;
+  /* //This is to prevent the image from capturing the hover event */
+  pointer-events: none; 
 }
 
 .slider:hover{
@@ -123,22 +125,76 @@ nav, .wrapper{
 .movie__carousel{
   margin: 3em 0;
 }
-.movie__container{
-}
 .slider__container{
- 
+  margin: 3vw 0;
 }
 .slider{
   display: flex;  
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .carousel__img__container{
   margin-right: 0.6rem;
   border-radius: 10px;
   flex-shrink: 0;
 }
+
+.carousel__img__container:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  box-shadow: rgba(0, 0, 0,0.75) 0 3px 10px;
+}
+
+.modal__container{
+  padding: 1em;
+  background: #141414;
+  display: none;
+  pointer-events: none;
+}
+
+.play-icon{
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid transparent;
+}
+.play-icon:hover{
+  background: #ddd;
+}
+.add-icon,.thumbs-icon,.down-icon{
+  background-color: #2a2a2a;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+    border-radius: 50%;
+}
+.add-icon:hover,.thumbs-icon:hover,.down-icon:hover{
+  background: #333;
+  border:1px solid #fff
+}
+
+.play-icon, .add-icon,.thumbs-icon,.down-icon{
+  margin: 0.2em;
+  display: flex;
+  height: 22px;
+  width: 22px;
+}
+
+.play-icon > svg, .add-icon > svg,.thumbs-icon > svg,.down-icon > svg{
+  margin: auto;
+  max-width: 20px;
+  max-height: 20px;
+}
+
+/* Thumbs icon wont scale with height or width property. Work around to get the correct proportions */
+
+.thumbs-icon > svg{
+  transform: scale(0.7);
+}
+
 .slider img{
   border-radius: 4px;
+}
+.down-icon{
+  align-items: flex-end;
+  margin: auto 0 auto auto;
 }
 main{
   /* margin-top: -13.5rem; */

@@ -1,5 +1,7 @@
 import Navbar from "../../components/Navbar";
 import Banner from "../../components/Banner";
+import Card from "../../components/Card";
+
 import Icon from '@mdi/react';
 import { mdiChevronRight } from '@mdi/js';
 let movieCollection = []
@@ -28,15 +30,9 @@ const Home = (props) =>{
                         <div className="slider">
                             {/* Pass movie arrays and ID to return data from API */}
                             {getMoviesFromGenre(props.movies,genre.id)}
-                            {movieCollection.map(item => item[1].map(val=><div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original/${val.backdrop_path}`} alt="" /></div>))}
+                            {movieCollection.map(item => item[1].map(val=><Card imageUrl={val.backdrop_path}/>))}
                                 
-                            {/* <div className='carousel__img__container'><img src={``} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div>
-                            <div className='carousel__img__container'><img src={`https://image.tmdb.org/t/p/original//9m161GawbY3cWxe6txd1NOHTjd0.jpg`} alt="" /></div> */}
+                            
                             <div className="next-navigation">
                                 <Icon 
                                 className="arrow-next"

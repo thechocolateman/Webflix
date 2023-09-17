@@ -30,14 +30,7 @@ let movieList = [];
       console.log("CALLED FUNCTION")
     })
   }
-
-  //Get movies for each genre and store in state
-  const getGenreMovies = useCallback =>(()=> {
-    console.log("RUN")
-  },[])
-
-
-
+  
   useEffect(()=>{
     
     //Set an isloaded variable and sets to true once the function is called and saved to state 
