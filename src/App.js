@@ -30,7 +30,7 @@ let movieList = [];
       console.log("CALLED FUNCTION")
     })
   }
-  
+
   useEffect(()=>{
     
     //Set an isloaded variable and sets to true once the function is called and saved to state 
@@ -61,7 +61,7 @@ let movieList = [];
                 // console.log(movies)
               })            
             }
-            getMovies("movies", `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genres[item].id}&`, "55c56b9f930280a2563491ffe49d383f")
+            getMovies("movies", `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genres[item].id}&`, "55c56b9f930280a2563491ffe49d383f")
             
             finishedLoading = true
           }
