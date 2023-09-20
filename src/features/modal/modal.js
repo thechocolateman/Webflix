@@ -9,8 +9,9 @@ export const Modal = () =>{
         <div className="modal">
             Modal
             <button onClick={()=> {
+                console.log("before :", modalState)
                 dispatch(toggleModal())
-                console.log(modalState)
+                console.log("after :", modalState)
             }}>
                 Close
             </button>

@@ -8,7 +8,9 @@ export const modalSlice = createSlice({
     name:'active',
     initialState,
     reducers:{
-        toggleModal: (state) => {state.value = !state.value}
+        toggleModal: (state) => {
+            state.value = !state.value;
+        }
     }
 })
 

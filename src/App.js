@@ -2,6 +2,10 @@ import './App.css';
 
 import Home from "./pages/Home"
 import { useEffect, useState} from "react"
+import Modal from './features/modal/modal';
+import { useSelector } from 'react-redux';
+
+
 // let arr = []
 let isLoaded = false;
 let finishedLoading = false;
@@ -15,6 +19,8 @@ let movieList = [];
   const [genres, setGenres] = useState({})
   const [movies, setMovies] = useState({})
   // const [allMovies, setAllMovies] = useState({})
+  const modalState = useSelector(state => state.active.value)
+
 
   function getContent(obj, url, key){
     
@@ -88,6 +94,8 @@ let movieList = [];
 
   return (
     <div className="App">
+      {/* FIX MODAL SO IT DOESN"T SHOW UNLESS CLICKING THE MOVIE BUTTON and then add data*/}
+      <Modal style={modalState === false ? {display: "none"}: {display: "flex"}}/>
       {movies.length > 0 ? <Home genres={genres} movies={movies} /> : <div>Loading</div>}
     </div>
   );

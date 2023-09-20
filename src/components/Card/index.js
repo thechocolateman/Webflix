@@ -1,8 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiChevronDown } from '@mdi/js';
+import { useSelector, useDispatch } from "react-redux";
+import { toggleModal } from "../../features/modal/modalSlice";
 
 
 export default function Card(props){
+    const modalState = useSelector(state => state.active.value)
+    const dispatch = useDispatch()
+
     return(
         <div className='carousel__img__container' 
             onMouseEnter={(e)=>
@@ -19,7 +24,7 @@ export default function Card(props){
                     <div  className="play-icon" ><Icon path={mdiPlay} color="black" size={1} onClick={()=>console.log("clicked")}/></div>
                     <div className="add-icon"><Icon  path={mdiPlus} color="white" size={1} onClick={()=>console.log("clicked")}/></div>
                     <div className="thumbs-icon"><Icon  path={mdiThumbUpOutline} color="white" size={0.8} onClick={()=>console.log("clicked")}/></div>
-                    <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={()=>console.log("OPEN MODAL")}/></div>
+                    <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={()=>{dispatch(toggleModal())}}/></div>
                 </div>
                 <p>{props.movie.title}</p>
                 {/* <div className="movie__info">
