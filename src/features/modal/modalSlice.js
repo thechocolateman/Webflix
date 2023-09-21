@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: true,
+    value: false,
     selectedMovie: ""
 }
 
