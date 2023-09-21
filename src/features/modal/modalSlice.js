@@ -9,13 +9,16 @@ export const modalSlice = createSlice({
     name:'active',
     initialState,
     reducers:{
-        toggleModal: (state, action) => {
+        openModal: (state, action) => {
             state.value = !state.value;
             state.selectedMovie = action.payload
             console.log("MOVIE: ", action.payload)
+        },
+        closeModal: (state) =>{
+            state.value = ""
         }
     }
 })
 
-export const {toggleModal}  = modalSlice.actions
+export const {openModal, closeModal}  = modalSlice.actions
 export default modalSlice.reducer

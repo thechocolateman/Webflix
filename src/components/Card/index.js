@@ -1,7 +1,7 @@
 import Icon from "@mdi/react";
 import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiChevronDown } from '@mdi/js';
 import { useSelector, useDispatch } from "react-redux";
-import { toggleModal } from "../../features/modal/modalSlice";
+import { openModal } from "../../features/modal/modalSlice";
 import { activeMovie } from "../../features/movies/movieSlice";
 
 export default function Card(props){
@@ -26,7 +26,7 @@ export default function Card(props){
                     <div className="add-icon"><Icon  path={mdiPlus} color="white" size={1} onClick={()=>console.log("clicked")}/></div>
                     <div className="thumbs-icon"><Icon  path={mdiThumbUpOutline} color="white" size={0.8} onClick={()=>console.log("clicked")}/></div>
                     <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={()=>{
-                        dispatch(toggleModal(props.movie))
+                        dispatch(openModal(props.movie))
                         }}/></div>
                 </div>
                 <p>{props.movie.title}</p>
