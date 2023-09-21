@@ -2,10 +2,11 @@ import Icon from "@mdi/react";
 import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiChevronDown } from '@mdi/js';
 import { useSelector, useDispatch } from "react-redux";
 import { toggleModal } from "../../features/modal/modalSlice";
-
+import { activeMovie } from "../../features/movies/movieSlice";
 
 export default function Card(props){
-    const modalState = useSelector(state => state.active.value)
+    // const modalState = useSelector(state => state.active.value)
+    // const activeMovieState = useSelector(state => state.movie.value)
     const dispatch = useDispatch()
 
     return(
@@ -24,9 +25,12 @@ export default function Card(props){
                     <div  className="play-icon" ><Icon path={mdiPlay} color="black" size={1} onClick={()=>console.log("clicked")}/></div>
                     <div className="add-icon"><Icon  path={mdiPlus} color="white" size={1} onClick={()=>console.log("clicked")}/></div>
                     <div className="thumbs-icon"><Icon  path={mdiThumbUpOutline} color="white" size={0.8} onClick={()=>console.log("clicked")}/></div>
-                    <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={()=>{dispatch(toggleModal())}}/></div>
+                    <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={()=>{
+                        dispatch(toggleModal(props.movie))
+                        }}/></div>
                 </div>
                 <p>{props.movie.title}</p>
+                {/* {console.log("MOV", props.movie)} */}
                 {/* <div className="movie__info">
                     <div className="match">99%</div>
                     <div className="age">TV-14</div>
@@ -37,6 +41,5 @@ export default function Card(props){
                     <div className="tag">Romance</div>
                 </div>
             </div>
-            <div className="modal">MODAL</div>
         </div>)
 }

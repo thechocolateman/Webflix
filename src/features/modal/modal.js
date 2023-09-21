@@ -3,15 +3,15 @@ import { toggleModal } from "./modalSlice"
 export const Modal = () =>{
 
     const modalState = useSelector(state => state.active.value)
+    const selectedMovie = useSelector(state => state.active.selectedMovie)
     const dispatch = useDispatch()
 
     return(
-        <div className="modal">
-            Modal
+        <div className={modalState === true ? `modal-active` : "modal-close"} >
+            <img src={`https://image.tmdb.org/t/p/original/${selectedMovie.poster_path}`}/>
             <button onClick={()=> {
-                console.log("before :", modalState)
                 dispatch(toggleModal())
-                console.log("after :", modalState)
+                console.log("after :", selectedMovie)
             }}>
                 Close
             </button>

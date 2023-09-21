@@ -2,14 +2,17 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     value: true,
+    selectedMovie: ""
 }
 
 export const modalSlice = createSlice({
     name:'active',
     initialState,
     reducers:{
-        toggleModal: (state) => {
+        toggleModal: (state, action) => {
             state.value = !state.value;
+            state.selectedMovie = action.payload
+            console.log("MOVIE: ", action.payload)
         }
     }
 })

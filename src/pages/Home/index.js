@@ -21,7 +21,6 @@ const Home = (props) =>{
             <main>            
                 {/* {console.log(props.movies)} */}
                 <div className="movie__carousel">
-                {console.log("MOVIES :", props.movies)}
                 {props.genres.length > 0 ? props.genres.map(genre => (<div className="slider__container">    
                         <div className="movie__container">
                             <h2>{genre.name}</h2>
@@ -31,7 +30,6 @@ const Home = (props) =>{
                             {/* Pass movie arrays and ID to return data from API */}
                             {getMoviesFromGenre(props.movies,genre.id)}
                             {movieCollection.map(item => item[1].map(val=><Card imageUrl={val.backdrop_path} movie={val}/>))}
-                            {console.log("redjnchdk")}
                             
                             <div className="next-navigation">
                                 <Icon 

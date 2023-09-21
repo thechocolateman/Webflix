@@ -3,7 +3,6 @@ import './App.css';
 import Home from "./pages/Home"
 import { useEffect, useState} from "react"
 import Modal from './features/modal/modal';
-import { useSelector } from 'react-redux';
 
 
 // let arr = []
@@ -14,12 +13,12 @@ let movieList = [];
 
 //Function to get content from the API
 
- function App() {
+function App() {
   //Variables to store JSON to state
   const [genres, setGenres] = useState({})
   const [movies, setMovies] = useState({})
   // const [allMovies, setAllMovies] = useState({})
-  const modalState = useSelector(state => state.active.value)
+  // const modalState = useSelector(state => state.active.value)
 
 
   function getContent(obj, url, key){
@@ -33,7 +32,6 @@ let movieList = [];
       else{
         setMovies(json)
       }
-      console.log("CALLED FUNCTION")
     })
   }
 
@@ -95,7 +93,7 @@ let movieList = [];
   return (
     <div className="App">
       {/* FIX MODAL SO IT DOESN"T SHOW UNLESS CLICKING THE MOVIE BUTTON and then add data*/}
-      <Modal style={modalState === false ? {display: "none"}: {display: "flex"}}/>
+      <Modal />
       {movies.length > 0 ? <Home genres={genres} movies={movies} /> : <div>Loading</div>}
     </div>
   );
