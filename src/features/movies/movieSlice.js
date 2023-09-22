@@ -1,19 +1,20 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: '',
+    value: [],
 }
 
 export const movieSlice = createSlice({
     name:'movie',
     initialState,
     reducers:{
-        activeMovie: (state, action) => {
+        saveMovie: (state, action) => {
             // state.value = state.value;
-            console.log("movie is: ", action.payload)
+            state.value = [...action.payload]
+            // console.log("List of movviesssssjwdhjh: ", state.value)
         }
     }
 })
 
-export const {activeMovie}  = movieSlice.actions
+export const {saveMovie}  = movieSlice.actions
 export default movieSlice.reducer

@@ -3,7 +3,9 @@ import './App.css';
 import Home from "./pages/Home"
 import { useEffect, useState} from "react"
 import Modal from './features/modal/modal';
-
+import { movieSlice } from './features/movies/movieSlice';
+import { saveMovie } from './features/movies/movieSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 // let arr = []
 let isLoaded = false;
@@ -17,6 +19,8 @@ function App() {
   //Variables to store JSON to state
   const [genres, setGenres] = useState({})
   const [movies, setMovies] = useState({})
+  const dispatch = useDispatch()
+  const movieState = useSelector(state => state.movie.value)
   // const [allMovies, setAllMovies] = useState({})
   // const modalState = useSelector(state => state.active.value)
 
@@ -63,6 +67,7 @@ function App() {
                 movieList.push(...val)
                 setMovies(movieList)
                 // console.log(movies)
+                dispatch(saveMovie(movieList))
               })            
             }
             getMovies("movies", `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genres[item].id}&`, "55c56b9f930280a2563491ffe49d383f")
@@ -94,7 +99,7 @@ function App() {
     <div className="App">
       {/* FIX MODAL SO IT DOESN"T SHOW UNLESS CLICKING THE MOVIE BUTTON and then add data*/}
       <Modal />
-      {movies.length > 0 ? <Home genres={genres} movies={movies} /> : <div>Loading</div>}
+      {movieState.length > 0 ? <Home genres={genres} movies={movies} /> : <div>Loading</div>}
     </div>
   );
 }

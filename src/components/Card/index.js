@@ -1,3 +1,9 @@
+// TODO 
+
+// Fix bugs preventing all movies from showing
+// Add movie state to redux
+
+
 import Icon from "@mdi/react";
 import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiChevronDown } from '@mdi/js';
 import { useSelector, useDispatch } from "react-redux";
