@@ -15,7 +15,7 @@ export const modalSlice = createSlice({
             console.log("MOVIE: ", action.payload)
         },
         closeModal: (state) =>{
-            state.value = ""
+            state.value = false
         }
     }
 })

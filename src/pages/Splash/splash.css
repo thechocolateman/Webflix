@@ -1,0 +1,96 @@
+@font-face {
+    font-family: Netflix Sans;
+    src: url(../../fonts/NetflixSans-Regular.otf);
+  }
+#root{
+    height: 100vh;
+    display: flex;
+}
+h1{
+    font-size: 3rem;
+    font-weight: 900;
+}
+body{
+    background: url("../../../public/images/splash-bg.jpeg");
+    font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+}
+
+.splash{
+    display: flex;
+    height:100vh;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    max-width: calc(
+        83.33333333333334% - 6rem
+    );
+}
+
+.signup__container{
+    display: flex;
+    flex-direction: column;
+    height: 65vh;
+    justify-content: center;
+}
+#action__form{
+    display: flex;
+}
+#email__box{
+    line-height: 1.5;
+    padding: 1.5rem 1rem 0.5rem;
+    width: 100%;
+}
+
+#email__box:active, #email__box:focus{
+    border: 0;
+    border: 1px solid red;
+}
+#submit__btn{
+    background-color: rgb(229, 9, 20);
+    color: rgb(255, 255, 255);
+    padding: 0.75rem 1.5rem;
+    border: 0;
+    font-weight: bold;
+    min-height: 3.5rem;
+}
+
+.login__modal{
+    min-height: 660px;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 4em;
+    box-sizing: border-box;
+    width: 450px;
+}
+
+#login__form{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+}
+
+#login__form>input[type="text"]{
+    background-color: #333;
+    line-height: 50px;
+    padding: 16px 20px 0;
+    margin: 1em 0;
+    border: 0;
+}
+
+.login__btn{
+    background-color: #e50914;
+    border-radius: 4px;
+    border: 0;
+    padding: 1em;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login__btn:hover{
+    cursor: pointer;
+}
