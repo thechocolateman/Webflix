@@ -15,7 +15,7 @@ export default function useGetData(contentType){
             case "tv":
                 for(const element in genreState){
                     genreState[element].map(item=>item.id).map(id=>{
-                        fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&with_genres=${id}&sort_by=popularity.desc&api_key=${API_KEY}`)
+                        fetch(`https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&with_original_language=en&watch_region=us&language=en-US&page=1&with_genres=${id}&sort_by=popularity.desc&api_key=${API_KEY}`)
                         .then(data=>data.json())
                         .then(json=>dispatch(saveTvSeries({id: id, results: json.results})))
                     })

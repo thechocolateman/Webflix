@@ -25,7 +25,9 @@ const MainTemplate = (props) =>{
         <main>
             {/* {console.log(props.movies)} */}
             <div className="movie__carousel">
-                {props.genres.length > 0 ? props.genres.map(genre => (<div className="slider__container">
+                {props.genres.length > 0 ? props.genres.map(genre => (
+                
+                <div className="slider__container">
                     <div className="movie__container">
                         <h2>{genre.name}</h2>
                     </div>
@@ -43,7 +45,8 @@ const MainTemplate = (props) =>{
                                 color="#fff" />
                         </div>
                     </div>
-                </div>)) : <div>EMPTY</div>}
+                </div>)
+                ) : <div>EMPTY</div>}
             </div>
         </main>
     </div>)
