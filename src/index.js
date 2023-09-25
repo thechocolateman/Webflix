@@ -6,16 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import Splash from './pages/Splash';
+import { Route, Routes, useNavigate } from 'react-router';
+import Home from './pages/Main';
+import TvTemplate from './pages/TV';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
-      <Splash />
+      <BrowserRouter><App/></BrowserRouter>
+      
+        
       {/* <App /> */}
       
     </Provider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

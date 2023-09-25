@@ -4,7 +4,9 @@ import Card from "../../components/Card";
 
 import Icon from '@mdi/react';
 import { mdiChevronRight } from '@mdi/js';
+import useGetData from "../../hooks/useGetData";
 let movieCollection = []
+
 
 function getMoviesFromGenre(movies, id){
     // movieCollection = movies.filter(movie => movie[0] === id)
@@ -12,11 +14,11 @@ function getMoviesFromGenre(movies, id){
     movieCollection = movies.filter(movie => movie[0] === id)
 }
 
-const Home = (props) =>(
-    <div>
-        {console.log("rfkdjdn", props.movies)}
+const MainTemplate = (props) =>{
+    // useGetData("movies")
+    return(<div>
         {/* Navigation */}
-        <Navbar />
+        <Navbar/>
         {/* Hero Banner */}
         <Banner />
         {/* Content Section */}
@@ -26,7 +28,6 @@ const Home = (props) =>(
                 {props.genres.length > 0 ? props.genres.map(genre => (<div className="slider__container">
                     <div className="movie__container">
                         <h2>{genre.name}</h2>
-                        {/* {console.log(genre.id)} */}
                     </div>
                     <div className="slider">
                         {/* Pass movie arrays and ID to return data from API */}
@@ -45,7 +46,7 @@ const Home = (props) =>(
                 </div>)) : <div>EMPTY</div>}
             </div>
         </main>
-    </div>
-)
+    </div>)
+}
 
-export default Home
+export default MainTemplate

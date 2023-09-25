@@ -4,15 +4,15 @@
   }
 #root{
     height: 100vh;
-    display: flex;
+    /* display: flex; */
 }
 h1{
     font-size: 3rem;
     font-weight: 900;
 }
 body{
-    background: url("../../../public/images/splash-bg.jpeg");
-    font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+    /* background: url("../../../public/images/splash-bg.jpeg"); */
+    /* font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif; */
 }
 
 .splash{
@@ -21,9 +21,8 @@ body{
     margin: 0 auto;
     justify-content: center;
     text-align: center;
-    max-width: calc(
-        83.33333333333334% - 6rem
-    );
+    max-width: calc(83.33333333333334% - 6rem);
+    background: url("../../../public/images/splash-bg.jpeg");
 }
 
 .signup__container{
