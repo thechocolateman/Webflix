@@ -25,58 +25,62 @@ function App() {
   const [genres, setGenres] = useState({})
   const [movies, setMovies] = useState({})
   const dispatch = useDispatch()
-  const movieState = useSelector(state => state.movie.value)
-  function getContent(obj, url, key){
+  // const movieState = useSelector(state => state.movie.value)
+  // function getContent(obj, url, key){
     
-   fetch(`${url}api_key=${key}`)
-    .then(data=>data.json())
-    .then(json=>{
-      if (obj === "genres"){
-        setGenres(json.genres)
-      }
-      else{
-        setMovies(json)
-      }
-    })
-  }
+  //  fetch(`${url}api_key=${key}`)
+  //   .then(data=>data.json())
+  //   .then(json=>{
+  //     if (obj === "genres"){
+  //       setGenres(json.genres)
+  //     }
+  //     else{
+  //       setMovies(json)
+  //     }
+  //   })
+  // }
 
-  function getMovieContent(data,id){
-    let returnedData = []
-    data.filter(row => {
-      //IDs from API
-      if(row[0] === id){
-        // return row[1]
-        returnedData.push(row[1])
-      }
-    })
-    // console.log(returnedData)
-    return returnedData
-  }
+  // function getMovieContent(data,id){
+  //   let returnedData = []
+  //   data.filter(row => {
+  //     //IDs from API
+  //     if(row[0] === id){
+  //       // return row[1]
+  //       returnedData.push(row[1])
+  //     }
+  //   })
+  //   // console.log(returnedData)
+  //   return returnedData
+  // }
 
   function test(){}
 
   function Main(){
     return(
-      movieState.length > 0 ? <MainTemplate genres={genres} movies={movies} /> : <div>Loading</div>
+      <MainTemplate /> 
     )
   }
   function TvSeries(){
-    return(movieState.length > 0 ? <TvTemplate genres={genres} movies={movies} /> : <TvTemplate/>)
+    return(<TvTemplate/>)
   }
 
   
   return (
+    <div>
+        <Navbar/>
         <Routes>
                 {/* <Route index element={<Home />} /> */}
               <Route path="/splash" element={<Splash />} key={Date.now()}/>
               <Route path="/" element={<Main />} key={Date.now()} />
-              <Route path="/home" element={<Main />} key={Date.now()}/>
-              <Route path="/tvseries" element={<TvSeries />} key={Date.now()}/>
+              <Route path="/home" element={<MainTemplate />} key={Date.now()}/>
+              <Route path="/movies" element={<MainTemplate />} key={Date.now()}/>
+              <Route path="/tvseries" element={<TvTemplate />} key={Date.now()}/>
               {/* <Route path="*" element={<Splash />} /> */}
               {/* </Route> */}
               {/* <Route exact path="/about" element={<About/>}/> */}
               
         </Routes>
+        </div>
   );
 }
 

@@ -31,7 +31,6 @@ const TvTemplate = (props) =>{
     
     return(
         <div>
-            <Navbar/>
             {/* {console.log("rfedsx", genreState.genres.length)} */}
             {/* Navigation */}
             {/* <Navbar/> */}

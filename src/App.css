@@ -57,7 +57,7 @@ nav, .wrapper{
 }
 .hero__banner{
   position: relative;
-  background-image: url("../public/images/oitnb.jpeg");
+  /* background-image: url("../public/images/oitnb.jpeg"); */
   background-size: cover;
   display: flex;
   min-height: 100vh;

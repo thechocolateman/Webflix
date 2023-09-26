@@ -10,7 +10,8 @@ export const movieSlice = createSlice({
     reducers:{
         saveMovie: (state, action) => {
             // state.value = state.value;
-            state.value = [...action.payload]
+            state.value = [...state.value, action.payload]
+
             // console.log("List of movviesssssjwdhjh: ", state.value)
         }
     }

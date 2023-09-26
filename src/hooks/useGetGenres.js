@@ -16,6 +16,11 @@ export const useGetGenres =(contentType) =>{
                     .then(data=>data.json())
                     .then(json=>dispatch(saveGenres(json)))
                 break;
+            case "movies":
+                fetch(`https://api.themoviedb.org/3/genre/movie/list?language=en&api_key=${API_KEY}`)
+                    .then(data=>data.json())
+                    .then(json=>dispatch(saveGenres(json)))
+                break;
         }
     }, [contentType, dispatch])
 

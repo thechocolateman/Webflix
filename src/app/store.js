@@ -8,7 +8,7 @@ import tvReducer from "../state/tv"
 export const store = configureStore({
     reducer :{
         active: modalReducer,
-        movie: movieReducer,
+        movies: movieReducer,
         genres: genreReducer,
         tvSeries: tvReducer
     }
