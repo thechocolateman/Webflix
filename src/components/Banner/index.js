@@ -14,7 +14,7 @@ export default function Banner (){
                         <button className='play-btn'>Play</button>
                         <button className='more-info-btn secondary'>More Info</button>
                         </div>
-                    </div>
+                    </div> 
                     {/* <img className='hero__img' src="" /> */}
                 </div>
                 <div className="banner__shadow"></div>
