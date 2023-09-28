@@ -53,25 +53,13 @@ function App() {
   //   return returnedData
   // }
 
-  function test(){}
-
-  function Main(){
-    return(
-      <MainTemplate /> 
-    )
-  }
-  function TvSeries(){
-    return(<TvTemplate/>)
-  }
-
-  
   return (
     <div>
         <Navbar/>
         <Routes>
                 {/* <Route index element={<Home />} /> */}
               <Route path="/splash" element={<Splash />} key={Date.now()}/>
-              <Route path="/" element={<Main />} key={Date.now()} />
+              <Route path="/" element={<MainTemplate />} key={Date.now()} />
               <Route path="/home" element={<MainTemplate />} key={Date.now()}/>
               <Route path="/movies" element={<MainTemplate />} key={Date.now()}/>
               <Route path="/tvseries" element={<TvTemplate />} key={Date.now()}/>

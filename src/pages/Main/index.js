@@ -34,6 +34,7 @@ const MainTemplate = () =>{
         <motion.div>
             {/* Navigation */}
             {/* Hero Banner */}
+            {console.log("ejkejej ekjej")}
             <Banner/>
             {/* Content Section */}
             <main>

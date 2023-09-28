@@ -1,15 +1,35 @@
+//FIX BUG WRONG IMAGE SHOWING
+//FIX BANNER BEING CALLED MULTIPLE TIMES
+//INCREASE LOAD SPEED
 import { useSelector } from "react-redux"
+
+// FUNCTION TO RETURN RANDOM movie to display in header
+let movie = ''
+function randomMovie(movieState){
+
+    //Return movie
+    // console.log("MOVVV", movieState[Math.floor(Math.random() * movieState.length)])
+    // for (let movie of movieState){
+    //     console.log("RESZ", movie["results"][1])
+    // }
+    let randomNum = Math.floor(Math.random() * movieState.length)
+    let len = movieState[randomNum]["results"].length-1
+    movie = movieState[randomNum]["results"][len]
+    // return movieState[randomNum]["results"][len]
+}
 
 export default function Banner (){
     const movieState = useSelector(state => state.movies.value)
-    let imageUrl = movieState[4]["results"][0]["backdrop_path"]
+    let imageUrl = movie["backdrop_path"]
     return(
         movieState.length > 15 ? (
             <section className="hero__banner" style={{backgroundImage:`url(https://image.tmdb.org/t/p/original/${imageUrl})`}}>
+                {randomMovie(movieState)}
                 <div className="wrapper">
                     <div className="detail__container">
-                        <h1>{movieState[4]["results"][0]["title"]}</h1>
-                        <p>{movieState[4]["results"][0]["overview"]}</p>
+                        {/* {console.log("4rjdknejned")} */}
+                        <h1>{movie["title"]}</h1>
+                        <p>{movie["overview"]}</p> 
                         <div className="action-btns">
                         <button className='play-btn'>Play</button>
                         <button className='more-info-btn secondary'>More Info</button>
