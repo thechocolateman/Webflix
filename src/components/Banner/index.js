@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 
 // FUNCTION TO RETURN RANDOM movie to display in header
 let movie = ''
+let gotRandom = false; //Set to true once we get the random movie
 function randomMovie(movieState){
 
     //Return movie
@@ -12,10 +13,15 @@ function randomMovie(movieState){
     // for (let movie of movieState){
     //     console.log("RESZ", movie["results"][1])
     // }
-    let randomNum = Math.floor(Math.random() * movieState.length)
-    let len = movieState[randomNum]["results"].length-1
-    movie = movieState[randomNum]["results"][len]
+    if(!gotRandom){
+        let randomNum = Math.floor(Math.random() * (movieState.length))
+        let len = movieState[randomNum]["results"].length-1
+        movie = movieState[randomNum]["results"][len]
+        gotRandom = true
+    }
+    
     // return movieState[randomNum]["results"][len]
+    console.log("RANNNNNn")
 }
 
 export default function Banner (){

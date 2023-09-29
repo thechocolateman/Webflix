@@ -23,7 +23,7 @@ function getMoviesFromGenre(series, id){
 
 
 
-const MainTemplate = () =>{
+function MainTemplate(){
     useGetGenres("movies")
     useGetData("movies")
     const genreState = useSelector(state => state.genres.value)
@@ -31,10 +31,9 @@ const MainTemplate = () =>{
     // tvState.length > 0 ? console.log("TV", tvState) : console.log("ejkjke")
     
     return(
-        <motion.div>
+        <div>
             {/* Navigation */}
             {/* Hero Banner */}
-            {console.log("ejkejej ekjej")}
             <Banner/>
             {/* Content Section */}
             <main>
@@ -69,7 +68,7 @@ const MainTemplate = () =>{
                     ) : console.log("NO")}
                 </div>
             </main>
-        </motion.div>
+        </div>
     )
 }
 

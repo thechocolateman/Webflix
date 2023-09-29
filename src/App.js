@@ -55,14 +55,14 @@ function App() {
 
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Routes>
                 {/* <Route index element={<Home />} /> */}
-              <Route path="/splash" element={<Splash />} key={Date.now()}/>
-              <Route path="/" element={<MainTemplate />} key={Date.now()} />
-              <Route path="/home" element={<MainTemplate />} key={Date.now()}/>
-              <Route path="/movies" element={<MainTemplate />} key={Date.now()}/>
-              <Route path="/tvseries" element={<TvTemplate />} key={Date.now()}/>
+              <Route path="/splash" element={<Splash />}/>
+              <Route path="/" element={<MainTemplate />} />
+              <Route path="/home" element={<MainTemplate />}/>
+              <Route path="/movies" element={<MainTemplate />}/>
+              <Route path="/tvseries" element={<TvTemplate />}/>
               {/* <Route path="*" element={<Splash />} /> */}
               {/* </Route> */}
               {/* <Route exact path="/about" element={<About/>}/> */}
