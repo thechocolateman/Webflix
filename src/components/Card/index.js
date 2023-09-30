@@ -21,21 +21,12 @@ export default function Card(props){
                 scale: 1.5,
                 transition: { duration: 1 },
             }}
-            onMouseOver={(e)=>
-                { 
-                    if(e.target.className === "carousel__img__container"){
-                        e.target.querySelector(".modal__container").style.display="flex"
-                    }
-                    else{
-                        console.log("erfde")
-                    }
-                    console.log(e.target)
-                }
-                // console.log("props: ", props)
-                
+            onHoverStart={(e)=>
+                (e.target.className === "carousel__img__container")? e.target.querySelector(".modal__container").style.display="flex" : console.log("erfde")
+            // console.log(e.target)}
             }
             
-            onMouseLeave={(e)=>e.target.className === "carousel__img__container" ? e.target.querySelector(".modal__container").style.display="none" : console.log(e.target.className)}
+            onHoverEnd={(e)=>e.target.className === "carousel__img__container" ? e.target.querySelector(".modal__container").style.display="none" : console.log(e.target.className)}
             >
             <img src={`https://image.tmdb.org/t/p/original/${props.imageUrl}`} alt="" />
             <div className="modal__container">
