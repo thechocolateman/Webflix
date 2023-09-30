@@ -8,6 +8,7 @@ import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiChevronDown } from '@mdi/js';
 import { useSelector, useDispatch } from "react-redux";
 import { openModal } from "../../features/modal/modalSlice";
 import { activeMovie } from "../../features/movies/movieSlice";
+import { motion } from "framer-motion"
 
 export default function Card(props){
     // const modalState = useSelector(state => state.active.value)
@@ -15,7 +16,11 @@ export default function Card(props){
     const dispatch = useDispatch()
 
     return(
-        <div className='carousel__img__container' 
+        <motion.div className='carousel__img__container' 
+            whileHover={{
+                scale: 1.5,
+                transition: { duration: 1 },
+            }}
             onMouseOver={(e)=>
                 { 
                     if(e.target.className === "carousel__img__container"){
@@ -55,5 +60,5 @@ export default function Card(props){
                     <div className="tag">Romance</div>
                 </div>
             </div>
-        </div>)
+        </motion.div>)
 }

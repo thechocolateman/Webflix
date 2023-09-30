@@ -132,7 +132,8 @@ nav, .wrapper{
 }
 .slider{
   display: flex;  
-  /* overflow: hidden; */
+  margin-left: 10px;
+  overflow: hidden;
 }
 .carousel__img__container{
   margin-right: 0.6rem;
@@ -142,7 +143,7 @@ nav, .wrapper{
 
 .carousel__img__container:hover {
   cursor: pointer;
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
   box-shadow: rgba(0, 0, 0,0.75) 0 3px 10px;
 }
 
@@ -239,6 +240,7 @@ main{
 .arrow-next{
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 .modal-close{
   display: none;

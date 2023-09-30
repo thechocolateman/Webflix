@@ -13,43 +13,31 @@ import { motion } from "framer-motion"
 let movieCollection = []
 
 function getMoviesFromGenre(series, id){
-    // movieCollection = movies.filter(movie => movie[0] === id)
     movieCollection = (Object.values(series).filter(show => show["id"] === id).map(item => item.results))
-    // for (const show in series){
-    //     console.log("fkjdf", series[show].filter())
-    // }
-    // movieCollection = movies.results.filter(movie => movie[0] === id)
 }
-
-
 
 function MainTemplate(){
     useGetGenres("movies")
     useGetData("movies")
     const genreState = useSelector(state => state.genres.value)
     const movieState = useSelector(state => state.movies.value)
-    // tvState.length > 0 ? console.log("TV", tvState) : console.log("ejkjke")
     
     return(
         <div>
             {/* Navigation */}
             {/* Hero Banner */}
-            <Banner/>
+            {/* <Banner/> */}
             {/* Content Section */}
             <main>
-                {/* {console.log(props.movies)} */}
                 <div className="movie__carousel">
                     {Object.keys(genreState).length !== 0? genreState.genres.map(genre=>(
                         <div className="slider__container">
                             <div className="movie__container">
                                 <h2>{genre.name}</h2>
-                                {/* {console.log(genre.id)} */}
                             </div>
-                            <div className="slider">
+                            <motion.div animate={{ x: 40 }} className="slider">
                                 {/* Pass movie arrays and ID to return data from API */}
-                                {movieState.length > 1 ? getMoviesFromGenre(movieState, genre.id) : ''}
-                                {/* {console.log(movieCollection)} */}
-                                {/* {movieCollection.map(item => item[1].map(val => <Card imageUrl={val.backdrop_path} movie={val} />))}  */}
+                                {movieState.length > 1 ? getMoviesFromGenre(movieState, genre.id) : <div>Loading</div>}
                                 {movieCollection.map(item => item.map(val => <Card imageUrl={val.backdrop_path} movie={val} />))} 
         
                                 <div className="next-navigation">
@@ -58,14 +46,20 @@ function MainTemplate(){
                                         path={mdiChevronRight}
                                         title="User Profile"
                                         size={3}
+                                        onClick={(e)=>{
+                                            
+                                            document.getElementsByClassName("slider")[0].style.marginLeft += `${document.getElementsByClassName("slider")[0].style.marginLeft + 300}px`
+                                            console.log('NUM', document.getElementsByClassName("slider")[0].style.marginLeft)
+                                        }}
                                         color="#fff" />
+                                        
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     )
                     
                     
-                    ) : console.log("NO")}
+                    ) : <div>Loading</div>}
                 </div>
             </main>
         </div>
