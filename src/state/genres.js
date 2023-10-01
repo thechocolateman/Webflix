@@ -10,8 +10,8 @@ export const genreSlice = createSlice({
     initialState,
     reducers:{
         saveGenres: (state, action) => {
-            console.log("Load", action.payload)
             state.value = action.payload
+            
         }
     }
 })

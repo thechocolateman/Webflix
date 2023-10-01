@@ -19,14 +19,18 @@ export default function Card(props){
         <motion.div className='carousel__img__container' 
             whileHover={{
                 scale: 1.5,
-                transition: { duration: 1 },
+                transition: { duration: 0.4 },
             }}
-            onHoverStart={(e)=>
+            onHoverStart={(e)=>{
                 (e.target.className === "carousel__img__container")? e.target.querySelector(".modal__container").style.display="flex" : console.log("erfde")
             // console.log(e.target)}
-            }
+                document.getElementsByClassName("next-navigation")[0].style.display="block"
+            }}
             
-            onHoverEnd={(e)=>e.target.className === "carousel__img__container" ? e.target.querySelector(".modal__container").style.display="none" : console.log(e.target.className)}
+            onHoverEnd={(e)=>{
+                e.target.className === "carousel__img__container" ? e.target.querySelector(".modal__container").style.display="none" : console.log(e.target.className)
+                document.getElementsByClassName("next-navigation")[0].style.display="none"
+            }}
             >
             <img src={`https://image.tmdb.org/t/p/original/${props.imageUrl}`} alt="" />
             <div className="modal__container">
@@ -40,12 +44,6 @@ export default function Card(props){
                         }}/></div>
                 </div>
                 <p>{props.movie.title}</p>
-                {/* {console.log("MOV", props.movie)} */}
-                {/* <div className="movie__info">
-                    <div className="match">99%</div>
-                    <div className="age">TV-14</div>
-                    <div className="duration">2hr 38mins</div>
-                </div> */}
                 <div className="movie__tags">
                     <div className="tag">Comedy</div>
                     <div className="tag">Romance</div>
