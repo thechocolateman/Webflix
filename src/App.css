@@ -157,7 +157,13 @@ nav, .wrapper{
   position: absolute;
   right: 0;
 }
-
+.modal__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgb(1,1,1,.6);
+}
 .modal__container{
   padding: 1em;
   /* background: #141414; */
@@ -262,12 +268,89 @@ main{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #141414;
-
+  background: #181818;
+  width: 850px;
+  border-radius: 6px;
 }
 .movie-info{
-  padding: 1.6em 2.3em;
+  padding: 3em;
+}
+.movie-info p{
+  line-height: 1.86em;
 }
 .modal img{
   max-width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.modal__action__container{
+  position: relative;
+  display: flex;
+}
+
+.overlay-add-icon svg, .overlay-thumbs-icon svg{
+  max-width: 20px;
+  max-height: 20px;
+}
+button.overlay-play-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2.4rem;
+  background: #fff;
+  border: 0;
+  border-radius: 4px;
+  margin-right: .25em;
+}
+.overlay__btns {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3em;
+  margin-left: 3em;
+}
+
+.overlay-add-icon, .overlay-thumbs-icon{
+  margin: .25em;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-width: 2px;
+  border-color: hsla(0,0%,100%,.5);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(42,42,42,.6);
+}
+
+.modal__close__btn{
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid; */
+  margin: 1em;
+  border-radius: 50%;
+  background-color: #181818;
+}
+
+.modal__close__btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.modal__close__btn:hover, .overlay-add-icon:hover, .overlay-thumbs-icon:hover{
+  cursor: pointer;
+}
+
+.bottom__shadow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,#181818,transparent 50%);
 }

@@ -40,7 +40,8 @@ export default function Card(props){
                     <div className="thumbs-icon"><Icon  path={mdiThumbUpOutline} color="white" size={0.8} onClick={()=>console.log("clicked")}/></div>
                     <div className="down-icon"><Icon  path={mdiChevronDown} color="white" size={1} onClick={(e)=>{
                         dispatch(openModal(props.movie))
-                        e.currentTarget.parentElement.closest(".modal__container").style.display="none"
+                        console.log("CLOSEST : ", e.currentTarget.parentElement.closest(".modal__container"))
+                        e.currentTarget.parentElement.closest(".modal__container").style.display="block"
                         }}/></div>
                 </div>
                 <p>{props.movie.title}</p>

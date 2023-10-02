@@ -8,6 +8,8 @@ import useGetData from "../../hooks/useGetData";
 import {useGetGenres} from "../../hooks/useGetGenres";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion"
+import Modal from "../../features/modal"
+import Banner from "../../components/Banner"
 
 let movieCollection = []
 
@@ -40,10 +42,12 @@ const MainTemplate =() =>{
     
     return(
         <div>
+            <Modal/>
             {/* Navigation */}
             {/* Hero Banner */}
-            {/* <Banner/> */}
+            <Banner/>
             {/* Content Section */}
+            
             <main>
                 <div className="movie__carousel">
                 
