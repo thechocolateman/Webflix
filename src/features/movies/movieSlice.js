@@ -11,7 +11,7 @@ export const movieSlice = createSlice({
         saveMovie: (state, action) => {
             // state.value = state.value;
             state.value = [...state.value, action.payload]
-
+            console.log("VALLL", state.value)
             // console.log("List of movviesssssjwdhjh: ", state.value)
         }
     }

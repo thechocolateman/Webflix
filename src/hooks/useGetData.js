@@ -33,6 +33,21 @@ export default function useGetData(contentType){
                     })
                 }
                 break;
+            case "latest":
+
+                Promise.all([
+                    fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API_KEY}`),
+                    fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=${API_KEY}`),
+                    fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1&api_key=${API_KEY}`)
+                ])
+                .then(async data => {
+                    // console.log(await data[0].json(), await data[1].json(), await data[2].json())
+                    dispatch(saveMovie({
+                        popular: await data[0].json(),
+                        upcomingMovies: await data[1].json(),
+                        topRated: await data[2].json()
+                    }))
+                })
         }
     },[contentType, dispatch, genreState])
 }

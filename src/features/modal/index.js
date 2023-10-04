@@ -3,6 +3,7 @@ import Icon from "@mdi/react";
 import { mdiPlay,mdiPlus, mdiThumbUpOutline, mdiClose, mdiChevronDown } from '@mdi/js';
 import { closeModal } from "./modalSlice"
 import { motion } from "framer-motion"
+import genres from "../../state/genres";
 
 export const Modal = () =>{
 
@@ -51,7 +52,16 @@ export const Modal = () =>{
                 <h2>{selectedMovie.title}</h2>
                 <p>{selectedMovie.overview}</p>
                 <ul>
-                    <li>Genre: {Object.keys(genreState).length > 1 ? selectedMovie.genre_ids : "" }</li>
+                    {/* <li>Genre: {Object.keys(selectedMovie).length > 1 ? (
+                        // (selectedMovie.genre_ids.map(id=>(genreState.genres.filter(item=>item.id === id)))) 
+                        // const result = words.filter((word) => word.length > 6);
+                        // console.log("ITEMM", selectedMovie.genre_ids.filter(item=>
+                        //     genreState.genres.map(genre=>item===genre.id)
+                        // ))
+                        genreState.genres.filter(genre=>selectedMovie.genre_ids.map(item=>genreState.genres.filter(num=>(num.id===item))).map(num=>console.log("eferrtefd", num)))
+                        // console.log(...genreState.genres)
+                        // console.log(genreState.genres.filter(genre=>{(selectedMovie.genre_ids.map(id=>id==28))}))
+                    ) : console.log("rfkfkrkirjk") }</li> */}
                     {/* {console.log("MODAL", genreState.genres)} */}
                     <li>Release Date: {selectedMovie.release_date}</li>
                     <li>Average Vote: {selectedMovie.vote_average}</li>
