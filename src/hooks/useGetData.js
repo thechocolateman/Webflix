@@ -44,7 +44,7 @@ export default function useGetData(contentType){
                     // console.log(await data[0].json(), await data[1].json(), await data[2].json())
                     dispatch(saveMovie({
                         popular: await data[0].json(),
-                        upcomingMovies: await data[1].json(),
+                        upcoming: await data[1].json(),
                         topRated: await data[2].json()
                     }))
                 })
