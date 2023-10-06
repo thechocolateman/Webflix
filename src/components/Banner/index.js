@@ -46,7 +46,7 @@ export default function Banner (){
                 <div className="banner__shadow"></div>
             </section>
             // console.log("SUP", movieState[2]["results"][0]["backdrop_path"])
-        ) : "fede"
+        ) : ""
         
     )
 }

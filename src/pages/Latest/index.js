@@ -31,67 +31,48 @@ export default function LatestTemplate(){
     useGetData("latest")
     const movieState = useSelector(state => state.movies.value)
     return(
-    <div>
+    <div key={"rfder4t5gfr"}>
         {/* {console.log("STATE is", movieState)} */}
         {/* {movieState.map(item=>console.log(item["popular"]))} */}
         <Modal/>
         <main>
-                <div className="movie__carousel">
-                
-                    
-                        
-                        <div className="slider__container">
-                            
-                                <div>
-                                    <div className="movie__container">
-                                    <h2>Popular</h2>
-                                    </div>
-                                </div>
-                                <motion.div animate={{ x: 0, z:20 }} className="slider">
-
-                                    {/* {movieCollection.map(item => item.map(val => 
-                                        <Card imageUrl={val.backdrop_path} movie={val} />
-                                    ))}  */}
-                                    {movieState.map(movies=>movies["popular"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />))}
-                                    <ForwardArrow/>
-                                    
-                                </motion.div>
+            <div className="movie__carousel">
+                    <div className="slider__container">
+                        <div className="movie__container">
+                            <h2>Popular</h2>
                         </div>
-                        <div className="slider__container">
-                            
-                                <div>
-                                    <div className="movie__container">
-                                    <h2>Upcoming</h2>
-                                    </div>
-                                </div>
-                                <motion.div animate={{ x: 0, z:20 }} className="slider">
+                        <motion.div animate={{ x: 0, z:20 }} className="slider" key="43234re">
 
-                                    {/* {movieCollection.map(item => item.map(val => 
-                                        <Card imageUrl={val.backdrop_path} movie={val} />
-                                    ))}  */}
-                                    {movieState.map(movies=>movies["upcoming"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />))}
-                                    <ForwardArrow/>
-                                    
-                                </motion.div>
-                        </div>
-                        <div className="slider__container">
+                            {/* {movieCollection.map(item => item.map(val => 
+                                <Card imageUrl={val.backdrop_path} movie={val} />
+                            ))}  */}
+                            {console.log("STATE", movieState)}
+                            {Object.keys(movieState).length !== 0 ? movieState[0]["popular"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />):""}
+                            <ForwardArrow/>
                             
-                                <div>
-                                    <div className="movie__container">
-                                    <h2>Top Rated</h2>
-                                    </div>
-                                </div>
-                                <motion.div animate={{ x: 0, z:20 }} className="slider">
-
-                                    {/* {movieCollection.map(item => item.map(val => 
-                                        <Card imageUrl={val.backdrop_path} movie={val} />
-                                    ))}  */}
-                                    {movieState.map(movies=>movies["topRated"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />))}
-                                    <ForwardArrow/>
-                                    
-                                </motion.div>
-                        </div>
+                        </motion.div>
+                    </div>
+                   
+            </div>
+            <div className="slider__container">
+                <div className="movie__container">
+                    <h2>Top Rated</h2>
                 </div>
+                <motion.div animate={{ x: 0, z:20 }} className="slider">
+                    {Object.keys(movieState).length !== 0 ? movieState[0]["topRated"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />) : ""}
+                    <ForwardArrow/>
+                </motion.div>
+            </div>
+            <div className="slider__container">
+                <div className="movie__container">
+                    <h2>Upcoming</h2>
+                </div>
+                <motion.div animate={{ x: 0, z:20 }} className="slider">
+                    {Object.keys(movieState).length !== 0 ? movieState[0]["upcoming"].results.map(val=><Card imageUrl={val.backdrop_path} movie={val} />) : ""}
+                    <ForwardArrow/>
+                </motion.div>
+            </div>
+            
         </main>
     </div>)
 }

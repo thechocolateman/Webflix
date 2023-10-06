@@ -24,12 +24,19 @@ export default function Card(props){
             onHoverStart={(e)=>{
                 (e.target.className === "carousel__img__container")? e.target.querySelector(".modal__container").style.display="flex" : console.log("erfde")
             // console.log(e.target)}
-                document.getElementsByClassName("next-navigation")[0].style.display="block"
+                try {
+                    document.getElementsByClassName("next-navigation")[0].style.display="block"
+                } catch (error) {
+                    
+                }
             }}
             
             onHoverEnd={(e)=>{
                 e.target.className === "carousel__img__container" ? e.target.querySelector(".modal__container").style.display="none" : console.log(e.target.className)
-                document.getElementsByClassName("next-navigation")[0].style.display="none"
+                try{
+                    document.getElementsByClassName("next-navigation")[0].style.display="none"
+                }
+                catch{}
             }}
             >
             <img src={`https://image.tmdb.org/t/p/original/${props.imageUrl}`} alt="" />

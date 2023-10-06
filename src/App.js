@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/splash" element={<Splash />}/>
         <Route path="/" element={
-          <Suspense fallback={<div>Ejefkkfj</div>}>
+          <Suspense fallback={<div></div>}>
             <MainTemplate />
           </Suspense>
         } />
