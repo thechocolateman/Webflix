@@ -2,7 +2,7 @@ import Banner from "../../components/Banner";
 import useGetData from "../../hooks/useGetData";
 import {useGetGenres} from "../../hooks/useGetGenres";
 import { useSelector } from "react-redux";
-import BasePage from "../../components/BasePage";
+import BasePage from "../BasePage";
 import Modal from "../../features/modal";
 
 let movieCollection = []
@@ -19,7 +19,7 @@ const TvTemplate = (props) =>{
     
     return(
         <div>
-            {/* {console.log("rfedsx", genreState.genres.length)} */}
+            {console.log("rfedsx", tvState)}
             {/* Navigation */}
             {/* <Navbar/> */}
             <Modal/>

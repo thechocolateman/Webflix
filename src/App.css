@@ -84,7 +84,10 @@ nav, .wrapper{
   height: auto;
   top: 30%;
 }
-
+.movie__container {
+  z-index: 99999;
+  position: relative;
+}
 .detail__container{
   color:#fff;
   width: 45%;
@@ -251,9 +254,10 @@ nav, .wrapper{
   margin: auto 0 auto auto;
 }
 main{
-  /* margin-top: -13.5rem; */
+  margin-top: -13.5rem;
   padding-left: 4rem;
 }
+
 .arrow-next{
   position: absolute;
   right: 0;

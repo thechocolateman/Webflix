@@ -6,7 +6,8 @@ import Splash from './pages/Splash';
 import TvTemplate from './pages/TV';
 import LatestTemplate from './pages/Latest';
 import { Suspense, React } from 'react';
-const MainTemplate = lazy(() =>import("./pages/Main"))
+// const MainTemplate = lazy(() =>import("./pages/Main"))
+import MainTemplate from './pages/Main';
 
 const renderLoader = () => <p className="backgroundColor=red">Loading</p>;
 
@@ -16,17 +17,9 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/splash" element={<Splash />}/>
-        <Route path="/" element={
-          <Suspense fallback={<div></div>}>
-            <MainTemplate />
-          </Suspense>
-        } />
+        <Route path="/" element={<MainTemplate />} />
         <Route path="/home" element={<MainTemplate />}/>
-        <Route path="/movies" element={
-          <Suspense fallback={renderLoader()}>
-            <MainTemplate />
-          </Suspense>
-        }/>
+        <Route path="/movies" element={<MainTemplate />}/>
         <Route path="/tvseries" element={<TvTemplate />}/>
         <Route path="/latest" element={<LatestTemplate />}/>
       </Routes>

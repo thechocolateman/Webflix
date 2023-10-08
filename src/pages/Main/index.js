@@ -1,17 +1,12 @@
-import Card from "../../components/Card";
 import React from "react";
 import useGetData from "../../hooks/useGetData";
 import {useGetGenres} from "../../hooks/useGetGenres";
 import { useSelector } from "react-redux";
 import Modal from "../../features/modal"
 import Banner from "../../components/Banner"
-import BasePage from "../../components/BasePage"
-
-
+import BasePage from "../BasePage"
 
 //Template for before the page loads
-
-
 
 const MainTemplate =() =>{
     useGetGenres("movies")
@@ -22,10 +17,7 @@ const MainTemplate =() =>{
     return(
         <div>
             <Modal/>
-            {/* Navigation */}
-            {/* Hero Banner */}
             <Banner/>
-            {/* Content Section */}
             <BasePage genreState={genreState} movieState={movieState}/>
             
         </div>

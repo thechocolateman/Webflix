@@ -10,6 +10,7 @@ let postArray = []
 export default function useGetData(contentType){
     
     const genreState = useSelector(state => state.genres.value)
+    const movieState = useSelector(state => state.movies.value)
     let dispatch = useDispatch();
     useEffect(()=>{
         switch(contentType.toLowerCase()){
@@ -34,7 +35,6 @@ export default function useGetData(contentType){
                 }
                 break;
             case "latest":
-
                 Promise.all([
                     fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API_KEY}`),
                     fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=${API_KEY}`),

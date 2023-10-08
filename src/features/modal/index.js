@@ -41,7 +41,6 @@ export const Modal = () =>{
                 <div className="modal__close__btn">
                 <Icon path={mdiClose} onClick={()=> {
                     dispatch(closeModal())
-                    console.log("after :", selectedMovie)
                 }} />
             </div>
             </div>
@@ -49,7 +48,7 @@ export const Modal = () =>{
             
 
             <div className="movie-info">
-                <h2>{selectedMovie.title}</h2>
+                <h2>{selectedMovie.title ? selectedMovie.title : selectedMovie.name}</h2>
                 <p>{selectedMovie.overview}</p>
                 <ul>
                     {/* <li>Genre: {Object.keys(selectedMovie).length > 1 ? (
