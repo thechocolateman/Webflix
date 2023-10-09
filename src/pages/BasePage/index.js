@@ -55,7 +55,8 @@ function EmptyStateCard(){
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6
+      items: 6,
+      
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -89,8 +90,12 @@ export default function BasePage(props){
                                     // animate={{ x: 0, z:20 }} 
                                     className="slider"
                                     containerClass="slider"
-                                    customTransition="all .5"
-                                    transitionDuration={500}
+                                    slidesToSlide={6}
+                                    sliderClass="row__container"
+                                    // ref={el => (this.Carousel = el)} 
+                                    // additionalTransfrom={-20 * 5}
+                                    // customTransition="all .5"
+                                    // transitionDuration={500}
                                 >
                                     {/* Pass movie arrays and ID to return data from API */}
                                     {getMoviesFromGenre(movieState, genre.id)}

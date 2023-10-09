@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+#root{
+  overflow-x: hidden;
+}
 @font-face {
   font-family: Netflix Sans;
   src: url(../src/fonts/NetflixSans-Regular.otf);
@@ -25,14 +27,37 @@ nav{
   position: fixed;
   background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
   align-items: center;
+  z-index: 100000000;
+}
+
+nav > ul .left{
+  display: flex;
+  box-sizing: border-box;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1d1d1d;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
   z-index: 1;
 }
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 nav ul{
   display: flex;
   height: 68px;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 nav ul li{
   flex-direction: row;
@@ -49,6 +74,7 @@ nav ul li a{
 }
 nav, .wrapper{
   padding: 0 4rem;
+  box-sizing: border-box;
 }
 .hero__banner>.wrapper{
   position: relative;
@@ -85,7 +111,7 @@ nav, .wrapper{
   top: 30%;
 }
 .movie__container {
-  z-index: 99999;
+  /* z-index: 99999; */
   position: relative;
 }
 .detail__container{
@@ -144,14 +170,12 @@ nav, .wrapper{
   margin-right: 0.6rem;
   border-radius: 10px;
   flex-shrink: 0;
-  width: 215px;
-  height: 120px;
-  background: rgb(50 50 50);
 }
 
 .carousel__img__container:hover {
   cursor: pointer;
   /* transform: scale(1.5); */
+  position: absolute;
   box-shadow: rgba(0, 0, 0,0.75) 0 3px 10px;
 }
 
@@ -173,7 +197,6 @@ nav, .wrapper{
   display: none;
   /* pointer-events: none; */
   flex-direction: column;
-  position: absolute;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
@@ -203,7 +226,9 @@ nav, .wrapper{
   height: 22px;
   width: 22px;
 }
-
+.react-multi-carousel-list {
+  overflow: unset;
+}
 .play-icon > svg, .add-icon > svg,.thumbs-icon > svg,.down-icon > svg{
   margin: auto;
   max-width: 20px;
@@ -357,4 +382,14 @@ button.overlay-play-icon {
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg,#181818,transparent 50%);
+}
+
+/* Slider */
+.react-multi-carousel-list{
+  overflow: unset !important;
+}
+
+/* Fix hover issue */
+.react-multi-carousel-item:hover {
+  z-index: 99;
 }
