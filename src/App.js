@@ -6,8 +6,10 @@ import Splash from './pages/Splash';
 import TvTemplate from './pages/TV';
 import LatestTemplate from './pages/Latest';
 import { Suspense, React } from 'react';
+import "./init"
 // const MainTemplate = lazy(() =>import("./pages/Main"))
 import MainTemplate from './pages/Main';
+
 
 const renderLoader = () => <p className="backgroundColor=red">Loading</p>;
 

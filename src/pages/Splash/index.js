@@ -27,8 +27,9 @@ const Splash = () => {
             <form id="login__form" action="#">
                 <input type="text" placeholder="Email Address"/>
                 <input type="text" placeholder="Password"/>
-                <Link to="/home">Home</Link>
-                <input className="login__btn" type="submit" onClick={()=> navigate("Home")} value={"Sign In"}/>
+                <Link to="home">Home</Link>
+                <input className="login__btn" type="submit" onClick={()=> navigate("/Home")} value={"Sign In"}/>
+                <input className="login__btn" type="submit" onClick={()=> navigate("/Home")} value={"Sign in with Google"}/>
             </form>
         </div>
     )

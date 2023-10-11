@@ -16,7 +16,7 @@ export default function Navbar(){
               <div class="dropdown">
                 <span>Account</span>
                 <div class="dropdown-content">
-                  <p>Hello World!</p>
+                  <li><Link to="/splash">Sign out</Link></li>
                 </div>
               </div>
             </div>
