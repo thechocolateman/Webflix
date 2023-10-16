@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom"
+import { getAuth } from "firebase/auth"
+
+import { signOut } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
 export default function Navbar(){
+  const auth = getAuth()
+  const navigate = useNavigate();
     return(
         <nav>
           <ul>
@@ -16,7 +22,13 @@ export default function Navbar(){
               <div class="dropdown">
                 <span>Account</span>
                 <div class="dropdown-content">
-                  <li><Link to="/splash">Sign out</Link></li>
+                  <li>
+                    <a href="#" onClick={()=>{
+                      signOut(auth).then(()=>{
+                        navigate("/splash")
+                      })
+                    }}><Link to="/splash">Sign out</Link></a>
+                  </li>
                 </div>
               </div>
             </div>
