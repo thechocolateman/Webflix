@@ -75,7 +75,7 @@ export default function BasePage(props){
         //All other pages iterate based off of genres that are fetched from the API. 
 
         props.page == "latest" ? <div>Latest</div> : (
-
+        
         <main>
             <div className="movie__carousel">
                 {Object.keys(genreState).length !== 0? genreState.genres.map((genre, index)=>(

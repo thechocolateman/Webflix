@@ -16,7 +16,7 @@ const renderLoader = () => <p className="backgroundColor=red">Loading</p>;
 function App() {
   return (
     <div>
-      <Navbar/>
+      
       <Routes>
         <Route path="/splash" element={<Splash />}/>
         <Route path="/" element={<MainTemplate />} />

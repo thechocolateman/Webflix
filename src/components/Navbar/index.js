@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { getAuth } from "firebase/auth"
-
+import Icon from "@mdi/react"
+import { mdiMagnify, mdiAccountTie } from '@mdi/js';
 import { signOut } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 export default function Navbar(){
@@ -17,10 +18,12 @@ export default function Navbar(){
               <li><Link to="/latest">New & Popular</Link></li>
               <li><Link to="/mylist">My List</Link></li>
             </div>
-            <div className="right">
-              <li>Search</li>
-              <div class="dropdown">
-                <span>Account</span>
+            <div id="navbar-right" className="right">
+              <li>
+                <Icon path={mdiMagnify} color="white" size={1.4} onClick={()=>console.log("clicked")}/>
+              </li>
+              <div id="profile-id" class="dropdown">
+                <span><Icon path={mdiAccountTie} color="white" size={1.4} onClick={()=>console.log("clicked")}/></span>
                 <div class="dropdown-content">
                   <li>
                     <a href="#" onClick={()=>{

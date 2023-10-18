@@ -5,6 +5,7 @@
 #root{
   overflow-x: hidden;
 }
+
 @font-face {
   font-family: Netflix Sans;
   src: url(../src/fonts/NetflixSans-Regular.otf);
@@ -29,7 +30,13 @@ nav{
   align-items: center;
   z-index: 100000000;
 }
-
+#navbar-right{
+  display: flex;
+  justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
 nav > ul .left{
   display: flex;
   box-sizing: border-box;
@@ -41,6 +48,7 @@ nav > ul .left{
 
 .dropdown-content {
   display: none;
+  margin: 0 -6rem;
   position: absolute;
   background-color: #1d1d1d;
   min-width: 160px;
@@ -51,6 +59,14 @@ nav > ul .left{
 
 .dropdown:hover .dropdown-content {
   display: block;
+  cursor: pointer;
+}
+.dropdown *{
+  cursor: pointer;
+}
+#profile-id{
+  background-color: #e5131b;
+  border-radius: 5px;
 }
 nav ul{
   display: flex;
