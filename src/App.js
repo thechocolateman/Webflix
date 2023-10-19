@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import { Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Splash from './pages/Splash';
+import Search from './pages/Search';
 import TvTemplate from './pages/TV';
 import LatestTemplate from './pages/Latest';
 import { Suspense, React } from 'react';
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/splash" element={<Splash />}/>
         <Route path="/" element={<MainTemplate />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/home" element={<MainTemplate />}/>
         <Route path="/movies" element={<MainTemplate />}/>
         <Route path="/tvseries" element={<TvTemplate />}/>

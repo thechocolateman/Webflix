@@ -19,7 +19,10 @@ export default function Navbar(){
               <li><Link to="/mylist">My List</Link></li>
             </div>
             <div id="navbar-right" className="right">
-              <li>
+              <li className="search-input">
+                <input type="text" onKeyUp={(e)=>navigate("/Search")} placeholder="Title, people, genres"/>
+              </li>
+              <li className="search-icon-container">
                 <Icon path={mdiMagnify} color="white" size={1.4} onClick={()=>console.log("clicked")}/>
               </li>
               <div id="profile-id" class="dropdown">

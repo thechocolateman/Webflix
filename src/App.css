@@ -75,14 +75,18 @@ nav ul{
   align-items: center;
   justify-content: space-between;
 }
-nav ul li{
+.left li{
   flex-direction: row;
   list-style-type: none;
   margin-left: 20px;
+  
 }
-
+ul li{
+  list-style-type: none;
+}
 nav ul li:first-child{
   font-weight: bold;
+  margin-right: 15px;
 }
 nav ul li a{
   color: #fff;
@@ -91,6 +95,12 @@ nav ul li a{
 nav, .wrapper{
   padding: 0 4rem;
   box-sizing: border-box;
+}
+.search-icon-container{
+  margin-right: 15px;
+}
+li.search-input input:focus {
+  outline: 0;
 }
 .hero__banner>.wrapper{
   position: relative;
