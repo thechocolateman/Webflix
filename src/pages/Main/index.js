@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Modal from "../../features/modal"
 import Banner from "../../components/Banner"
 import BasePage from "../BasePage"
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 //Template for before the page loads
 
@@ -18,7 +18,7 @@ const MainTemplate =() =>{
     return(
         <div>
             <Modal/>
-            <Navbar />
+            {/* <Navbar /> */}
             <Banner/>
             <BasePage genreState={genreState} movieState={movieState}/>
             

@@ -100,7 +100,29 @@ nav, .wrapper{
   margin-right: 15px;
 }
 li.search-input input:focus {
-  outline: 0;
+    outline: 0;
+}
+li.search-input {
+  align-items: center;
+  background: rgba(0,0,0,.75);
+  border: 1px solid hsla(0,0%,100%,.85);
+  display: flex;
+}
+.search-input-icon{
+  padding: 0 6px;
+}
+.search-input input{
+  background: none;
+  border: 0;
+  line-height: 34px;
+  height: 34px;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  padding: 7px 14px 7px 7px;
+  width: 212px;
 }
 .hero__banner>.wrapper{
   position: relative;

@@ -1,7 +1,7 @@
 import './App.css';
 import { lazy } from 'react';
 import { Route, Routes} from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar/Navbar";
 import Splash from './pages/Splash';
 import Search from './pages/Search';
 import TvTemplate from './pages/TV';
@@ -17,7 +17,7 @@ const renderLoader = () => <p className="backgroundColor=red">Loading</p>;
 function App() {
   return (
     <div>
-      
+      <Navbar/>
       <Routes>
         <Route path="/splash" element={<Splash />}/>
         <Route path="/" element={<MainTemplate />} />

@@ -4,7 +4,7 @@ import {useGetGenres} from "../../hooks/useGetGenres";
 import { useSelector } from "react-redux";
 import BasePage from "../BasePage";
 import Modal from "../../features/modal";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 let movieCollection = []
 
@@ -22,7 +22,7 @@ const TvTemplate = (props) =>{
         <div>
             {console.log("rfedsx", tvState)}
             {/* Navigation */}
-            <Navbar/>
+            {/* <Navbar/> */}
             <Modal/>
             {/* Hero Banner */}
             <Banner />

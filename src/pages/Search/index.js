@@ -1,9 +1,9 @@
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import "../../App.css"
 
 export default function Search(){
     return(
-        <Navbar/>
+        <div>swjkwdjjn </div>
     )
     
 }
