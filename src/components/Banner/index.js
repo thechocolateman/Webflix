@@ -23,12 +23,11 @@ export default function Banner (){
         Object.keys(movieState).length > 2 && movie !== undefined ? (
             <section className="hero__banner" style={{backgroundImage:`url(https://image.tmdb.org/t/p/original/${movie["backdrop_path"]})`}}>
                 {randomMovie(movieState)}
-                {console.log("MOVIE is : ", movie)}
 
                 <div className="wrapper">
                     <div className="detail__container">
                         {/* {console.log("4rjdknejned")} */}
-                        <h1>{movie["title"] ? movie["title"] : movie["name"]}</h1>
+                        <h1>{movie["title"] !== undefined ? movie["title"] : movie["name"]}</h1>
                         <p>{movie["overview"]}</p> 
                         <div className="action-btns">
                         <button className='play-btn'>Play</button>

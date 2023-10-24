@@ -12,7 +12,6 @@ export const userSlice = createSlice({
     reducers:{
         logInUser: (state, action) => {
             state.userId = action.userId
-            console.log("state", action)
         }
     }
 })

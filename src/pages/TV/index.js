@@ -20,7 +20,7 @@ const TvTemplate = (props) =>{
     
     return(
         <div>
-            {console.log("rfedsx", tvState)}
+            {/* {console.log("rfedsx", tvState)} */}
             {/* Navigation */}
             {/* <Navbar/> */}
             <Modal/>
