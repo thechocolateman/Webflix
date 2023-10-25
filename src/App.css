@@ -5,6 +5,9 @@
 #root {
   overflow-x: hidden;
 }
+img {
+  max-width: 100%;
+}
 
 @font-face {
   font-family: Netflix Sans;
@@ -167,6 +170,16 @@ li.search-input {
   height: auto;
   top: 30%;
 }
+.search__container {
+  margin: 0px 4% 10px;
+  padding-top: 8%;
+}
+.search__movie__container {
+  display: grid;
+  line-height: 1.6;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4vw 0px;
+}
 .movie__container {
   /* z-index: 99999; */
   position: relative;
@@ -212,7 +225,7 @@ li.search-input {
 }
 
 .movie__carousel {
-  padding: 3em 0;
+  margin: 3em 0;
 }
 .slider__container {
   margin: 3vw 0;
@@ -228,6 +241,7 @@ li.search-input {
   margin-right: 0.6rem;
   border-radius: 10px;
   flex-shrink: 0;
+  flex-basis: 210px;
 }
 
 .carousel__img__container:hover {

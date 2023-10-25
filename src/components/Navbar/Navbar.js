@@ -26,6 +26,7 @@ export default function Navbar() {
   const handleTextChange = (value) => {
     setSearchTextState(value);
     dispatch(saveSearch(value));
+    // document.getElementById("input-text-box").value =
     //If user is typing append url and navigate
     if (value.length > 0) {
       console.log("VAL", value);

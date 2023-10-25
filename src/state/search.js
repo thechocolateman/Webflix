@@ -2,6 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: [],
+  results: [],
 };
 
 export const searchSlice = createSlice({
@@ -11,8 +12,12 @@ export const searchSlice = createSlice({
     saveSearch: (state, action) => {
       state.value = action.payload;
     },
+    getResults: (state, action) => {
+      state.results = action.payload;
+      console.log("GET RESULTS FOR ", action.payload);
+    },
   },
 });
 
-export const { saveSearch } = searchSlice.actions;
+export const { saveSearch, getResults } = searchSlice.actions;
 export default searchSlice.reducer;
